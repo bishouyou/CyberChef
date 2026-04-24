@@ -43,6 +43,7 @@ import {
 import {statusBar} from "../utils/statusBar.mjs";
 import {fileDetailsPanel} from "../utils/fileDetails.mjs";
 import {eolCodeToSeq, eolCodeToName, renderSpecialChar} from "../utils/editorUtils.mjs";
+import {t} from "../../core/lib/I18n.mjs";
 
 
 /**
@@ -114,7 +115,7 @@ class InputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "Input",
+                    label: t("Input"),
                     eolHandler: this.eolChange.bind(this),
                     chrEncHandler: this.chrEncChange.bind(this),
                     chrEncGetter: this.getChrEnc.bind(this),

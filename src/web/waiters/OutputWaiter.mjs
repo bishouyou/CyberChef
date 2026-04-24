@@ -40,6 +40,7 @@ import {statusBar} from "../utils/statusBar.mjs";
 import {htmlPlugin} from "../utils/htmlWidget.mjs";
 import {copyOverride} from "../utils/copyOverride.mjs";
 import {eolCodeToSeq, eolCodeToName, renderSpecialChar} from "../utils/editorUtils.mjs";
+import {t} from "../../core/lib/I18n.mjs";
 
 
 /**
@@ -104,7 +105,7 @@ class OutputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "Output",
+                    label: t("Output"),
                     timing: this.manager.timing,
                     tabNumGetter: function() {
                         return this.manager.tabs.getActiveTab("output");
@@ -1595,11 +1596,11 @@ class OutputWaiter {
                 output.status === "stale" && showStale ||
                 output.status === "inactive" && showStale) {
                 const outDisplay = {
-                    "pending": "Not baked yet",
-                    "baking": "Baking",
-                    "error": output.error || "Errored",
-                    "stale": "Stale (output is out of date)",
-                    "inactive": "Not baked yet"
+                    "pending": t("Not baked yet"),
+                    "baking": t("Baking"),
+                    "error": output.error || t("Errored"),
+                    "stale": t("Stale (output is out of date)"),
+                    "inactive": t("Not baked yet")
                 };
 
                 // If the output has a dish object, check it against the filter
